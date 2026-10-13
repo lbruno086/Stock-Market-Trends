@@ -6,7 +6,9 @@
 
 ```bash
 pip install -r ai_agents/requirements.txt     # Python 3.11+
-export DEEPSEEK_API_KEY=...                    # or put it in .env
-python ai_agents/run_tradingagents.py NVDA 2026-10-10
+cp ai_agents/.env.example .env                 # put your DEEPSEEK_API_KEY there
+python ai_agents/run_tradingagents.py          # asks for a ticker, prints the report and the suggestion
+python ai_agents/run_tradingagents.py NVDA     # or pass the ticker directly
 ```
+Reports are also saved (with a single-page HTML) under `~/.tradingagents`.
 Research tool only — not financial advice.
