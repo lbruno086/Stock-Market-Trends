@@ -1,0 +1,34 @@
+# Configuración del bot de ofertas (quintas y hoteles 4★ en Pilar, Luján, Escobar)
+
+zonas:
+  - nombre: Pilar
+    busqueda: "Pilar, Buenos Aires, Argentina"
+  - nombre: Luján
+    busqueda: "Luján, Buenos Aires, Argentina"
+  - nombre: Escobar
+    busqueda: "Escobar, Buenos Aires, Argentina"
+
+# Fechas a buscar: los próximos N fines de semana (viernes -> domingo)
+fines_de_semana: 2
+noches: 2
+huespedes: 2
+
+# Descuento mínimo (%) para avisar. Se considera "descuento" si:
+#  - el sitio muestra precio tachado (oferta explícita), o
+#  - el precio bajó respecto de la mediana de lo que el bot vio antes
+descuento_minimo: 30
+
+# Para tachar comparaciones contra historial, mínimo de observaciones previas
+min_observaciones_historial: 3
+
+fuentes:
+  booking_hoteles_4_estrellas: true   # https://www.booking.com
+  airbnb_quintas: true                # https://www.airbnb.com.ar
+
+quintas:
+  solo_con_pileta: true
+  min_dormitorios: 2
+
+moneda: ARS
+# Tiempo entre iteraciones cuando se usa --loop (segundos)
+intervalo_segundos: 3600
