@@ -65,7 +65,7 @@ _JS_TARJETAS = r"""
       tachados,
       precio: pEl ? pEl.innerText.trim() : '',
       texto: card.innerText,
-      puntaje: score ? score.innerText.trim().split(/\s+/)[0] : ''
+      puntaje: score ? ((score.innerText.match(/\d{1,2}[,.]\d/) || [''])[0]) : ''
     });
   }
   return out;

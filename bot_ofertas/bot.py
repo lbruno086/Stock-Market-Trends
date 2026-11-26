@@ -38,7 +38,9 @@ def una_pasada(cfg: dict, almacen: Almacen) -> list:
     fechas = proximos_fines_de_semana(cfg["fines_de_semana"], cfg["noches"])
     encontradas = []
     with sync_playwright() as p:
-        nav = p.chromium.launch(headless=True, args=["--no-sandbox"])
+        exe = os.getenv("CHROMIUM_PATH")
+        nav = p.chromium.launch(headless=True, args=["--no-sandbox"],
+                                **({"executable_path": exe} if exe else {}))
         ctx = nav.new_context(user_agent=fuentes.UA, locale="es-AR",
                               timezone_id="America/Argentina/Buenos_Aires",
                               viewport={"width": 1366, "height": 900})
